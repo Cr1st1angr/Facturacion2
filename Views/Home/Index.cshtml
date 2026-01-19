@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Pruebas de Seguridad";
+}
+
+<h2>Pruebas de Seguridad - Usuarios y Roles</h2>
+
+<hr />
+
+<p><strong>Usuario conectado:</strong> @Context.Session.GetString("db_user")</p>
+<p><strong>Rol asignado:</strong> @Context.Session.GetString("db_role")</p>
+
+<hr />
+
+<div style="display:flex; gap:15px; margin-top:20px;">
+    <form asp-action="VerFacturas" method="get">
+        <button type="submit">Ver Facturas (SELECT)</button>
+    </form>
+
+    <form asp-action="InsertarFactura" method="get">
+        <button type="submit">Insertar Factura (INSERT)</button>
+    </form>
+
+    <form asp-action="EliminarFactura" method="get">
+        <button type="submit">Eliminar Factura (DELETE)</button>
+    </form>
+</div>
+
+<hr />
+
+<p style="color:gray; margin-top:20px;">
+    * Los permisos son controlados por PostgreSQL según el rol del usuario.
+</p>
